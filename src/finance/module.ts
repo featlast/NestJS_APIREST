@@ -6,7 +6,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Transaction', schema: TransactionSchema }])
+    MongooseModule.forFeature([
+      { name: 'Transaction', schema: TransactionSchema },
+    ]),
   ],
   controllers: [TransactionController],
   providers: [TransactionService],

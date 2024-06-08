@@ -2,14 +2,14 @@ import { IsNotEmpty, IsNumber, IsEnum, IsOptional } from 'class-validator';
 import { TransactionType } from '../schema';
 
 export class CreateTransactionDto {
-    @IsNotEmpty()
-    @IsNumber()
-    readonly amount: number;
+  @IsNotEmpty()
+  @IsNumber()
+  readonly amount: number;
 
-    @IsOptional()
-    @IsEnum(TransactionType)
-    type?: TransactionType;
+  @IsOptional()
+  @IsEnum(TransactionType)
+  type?: TransactionType;
 
-    @IsOptional()
-    userId?: string;
+  @IsOptional()
+  userId?: string;
 }

@@ -10,19 +10,11 @@ import { AuthMiddleware } from './authMiddleware';
       secret: jwtConstants.secret,
     }),
   ],
-  providers: [
-    AuthService,
-    AuthMiddleware,
-  ],
-  exports: [
-    AuthService,
-    AuthMiddleware,
-  ],
+  providers: [AuthService, AuthMiddleware],
+  exports: [AuthService, AuthMiddleware],
 })
 export class AuthModule {
-    configure(consumer: MiddlewareConsumer) {
-        consumer.apply(AuthMiddleware)
-          .exclude('login/v1/signIn')
-          .forRoutes('*');
-    }
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(AuthMiddleware).exclude('login/v1/signIn').forRoutes('*');
+  }
 }

@@ -10,7 +10,6 @@ import { MyLoggerService } from './exceptionFilter';
     MongooseModule.forRoot('mongodb://localhost:27017/ikualo'),
     UserModule,
     FinanceModule,
-  ]
+  ],
 })
-
 export class AppModule {}

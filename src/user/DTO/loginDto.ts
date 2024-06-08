@@ -1,3 +1,3 @@
 export class SignInDto {
-    readonly email: string;
+  readonly email: string;
 }
