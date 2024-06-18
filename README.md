@@ -27,4 +27,4 @@ http://localhost:3000/api/login/v1/signIn se debe de enviar un json { "email": x
 ##EndPoint para consultar las demas actividades
 http://localhost:3000/api/finance/transactions/v1/nameRoutes
 nameRoutes (deposit, withdraw, balance,movements, delete)
-Para Eliminar: http://localhost:3000/api/finance/transactions/v1/delete?productID=xxxxxx
+Para Eliminar: http://localhost:3000/api/finance/transactions/v1/delete?id=xxxxxx
