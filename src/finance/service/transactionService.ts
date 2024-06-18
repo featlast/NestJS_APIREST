@@ -1,9 +1,10 @@
 import { JwtService } from '@nestjs/jwt';
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Transaction, TransactionDocument, TransactionType } from '../schema';
 import { CreateTransactionDto } from '../DTO/transactionDto';
+import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class TransactionService {
@@ -66,10 +67,11 @@ export class TransactionService {
   }
 
   // Delete Movement
-  async deleteMovement(id: string): Promise<any> {
-    const deletedProduct = await this.transactionModel.findOneAndDelete({
-      _id: id,
-    });
-    return deletedProduct;
+  async deleteById(id: string): Promise<any> {
+    const deleteID=await this.transactionModel.findByIdAndDelete({_id:id}).exec(); 
+    return deleteID;
   }
+
+
+  
 }

@@ -57,18 +57,15 @@ export class TransactionController {
   }
 
   @Delete('delete')
-  async deleteMovements(
-    @Request() req: any,
-    @Query('productID') productID: string,
-  ) {
-    const productDeleted =
-      await this.transactionService.deleteMovement(productID);
-    this.logger.log(`Delete endpoint called,${productID}`);
-    if (!productDeleted)
-      throw new NotFoundException('Movement does not exist!');
-    return req.status(HttpStatus.OK).json({
-      message: 'Movement Deleted Successfully',
-      productDeleted,
-    });
-  }
+async deleteById(@Res() res:any,@Query('id') id: string): Promise<void| null> {
+  const productDeleted = await this.transactionService.deleteById(id);
+  this.logger.log(`Delete endpoint called,${id}`);
+  console.log('first', productDeleted)
+  if (!productDeleted) throw new NotFoundException('Product does not exist!');
+  return res.status(HttpStatus.OK).json({
+    message: 'Product Deleted Successfully',
+    productDeleted
+});
+}
+
 }
